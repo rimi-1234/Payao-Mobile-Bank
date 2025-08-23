@@ -49,15 +49,15 @@
         low and
       </p>
       <div class="grid grid-cols-3 gap-3 py-3">
-        <div class="shadow rounded-lg flex justify-center items-center py-3">
+        <div id="js-add-money" class="shadow rounded-lg flex justify-center items-center py-3">
           <div>
             <img class="mx-auto" src="./assets/wallet1.png" alt="" />
             <h1 class="text-gray-300 font-normal py-2">Add Money</h1>
           </div>
         </div>
-        <div class="shadow rounded-lg flex justify-center items-center">
+        <div id="js-Cashout" class="shadow rounded-lg flex justify-center items-center ">
           <div>
-            <img class="mx-auto" src="./assets/money1.png" alt="" />
+            <img   class="mx-auto" src="./assets/money1.png" alt="" />
             <h1 class="text-gray-300 font-normal py-2 text-center">Cashout</h1>
           </div>
         </div>
@@ -97,7 +97,7 @@
       </div>
     </div>
     <div class="all section froms p-4">
-      <div>
+      <div id="js-add-money-from">
         <h1 class="font-bold mb-3">Add money</h1>
         <div class="bg-white p-4 rounded-xl w-full">
           <form action="">
@@ -143,32 +143,25 @@
           </form>
         </div>
       </div>
-      <div>
-        <h1 class="font-bold mb-3">Add money</h1>
+      <div id="js-withdraw-money-from" class="hidden">
+        <h1 class="font-bold mb-3">Cash Out</h1>
         <div class="bg-white p-4 rounded-xl w-full">
           <form action="">
-            <label class="font-semibold" for=""> Select A Bank</label>
-            <br />
-            <select class="select select-primary my-3 w-full">
-              <option>Select back</option>
-              <option>Sonali bank</option>
-              <option>South east bank</option>
-              <option>AB bank</option>
-            </select>
-            <label class="font-semibold" for=""> Bank Account Numbern</label>
+          
+            <label class="font-semibold" for=""> Agent Number</label>
             <br />
             <input
               type="text"
-              placeholder="Enter 11 digit account number"
-              id="js-bank-number"
+              placeholder="Enter amount to withdraw"
+              id="js-agent-number"
               class="input w-full my-3 rounded-xl"
             />
-            <label class="font-semibold" for=""> Amount to Add</label>
+            <label class="font-semibold" for=""> Amount</label>
             <br />
             <input
               type="text"
               placeholder="Add Amount to withdraw"
-              id="js-ammunt"
+              id="js-ammunt-withdraw"
               class="input w-full my-3 rounded-xl"
             />
             <label class="font-semibold" for=""> Pin Number</label>
@@ -181,10 +174,10 @@
               class="input w-full my-3 rounded-xl"
             />
             <button
-              id="btnAddMoney"
+              id="btnWuthdrawMoney"
               class="btn bg-[#0874f2] w-full my-3 text-white rounded-xl"
             >
-              Add Money
+              Withdraw Money
             </button>
           </form>
         </div>
