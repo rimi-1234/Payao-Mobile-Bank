@@ -48,21 +48,28 @@
         Enjoy easy and convenient financial services with us. Cashout charge is
         low and
       </p>
-      <div class="grid grid-cols-3 gap-3 py-3">
-        <div id="js-add-money" class="shadow rounded-lg flex justify-center items-center py-3">
+      <div id="btn-box-parent" class="grid grid-cols-3 gap-3 py-3">
+        <div
+          id="js-add-money"
+          class="shadow rounded-lg flex justify-center items-center py-3"
+        >
           <div>
             <img class="mx-auto" src="./assets/wallet1.png" alt="" />
             <h1 class="text-gray-300 font-normal py-2">Add Money</h1>
           </div>
         </div>
-        <div id="js-Cashout" class="shadow rounded-lg flex justify-center items-center ">
+        <div
+          id="js-Cashout"
+          class="shadow rounded-lg flex justify-center items-center"
+        >
           <div>
-            <img   class="mx-auto" src="./assets/money1.png" alt="" />
+            <img class="mx-auto" src="./assets/money1.png" alt="" />
             <h1 class="text-gray-300 font-normal py-2 text-center">Cashout</h1>
           </div>
         </div>
 
-        <div id="js-tranfer"
+        <div
+          id="js-tranfer"
           class="shadow rounded-lg flex justify-center items-center py-2 text-center"
         >
           <div>
@@ -70,7 +77,8 @@
             <h1 class="text-gray-300 font-normal">Transfer Money</h1>
           </div>
         </div>
-        <div id="js-bonus"
+        <div
+          id="js-bonus"
           class="shadow rounded-lg flex justify-center items-center py-3 text-center"
         >
           <div>
@@ -78,7 +86,8 @@
             <h1 class="text-gray-300 font-normal">Get Bonus</h1>
           </div>
         </div>
-        <div  id="js-pay-bill"
+        <div
+          id="js-pay-bill"
           class="shadow rounded-lg flex justify-center items-center py-3 text-center"
         >
           <div>
@@ -87,6 +96,7 @@
           </div>
         </div>
         <div
+          id="js-tranction"
           class="shadow rounded-lg flex justify-center items-center py-3 text-center"
         >
           <div>
@@ -96,7 +106,7 @@
         </div>
       </div>
     </div>
-    <div class="all section from p-4">
+    <div id="all-section" class="all section from p-4">
       <div id="js-add-parent" class="froms hidden">
         <h1 class="font-bold mb-3">Add money</h1>
         <div class="bg-white p-4 rounded-xl w-full">
@@ -126,7 +136,7 @@
               class="input w-full my-3 rounded-xl"
             />
             <label class="font-semibold" for=""> Pin Number</label>
-       
+
             <br />
             <input
               type="password"
@@ -147,7 +157,6 @@
         <h1 class="font-bold mb-3">Cash Out</h1>
         <div class="bg-white p-4 rounded-xl w-full">
           <form action="">
-          
             <label class="font-semibold" for=""> Agent Number</label>
             <br />
             <input
@@ -165,7 +174,7 @@
               class="input w-full my-3 rounded-xl"
             />
             <label class="font-semibold" for=""> Pin Number</label>
-       
+
             <br />
             <input
               type="password"
@@ -186,10 +195,8 @@
         <h1 class="font-bold mb-3">Get Bonus</h1>
         <div class="bg-white p-4 rounded-xl w-full">
           <form action="">
-          
-         
             <label class="font-semibold" for="">Enter Bonus Coupon</label>
-       
+
             <br />
             <input
               type="password"
@@ -201,7 +208,7 @@
               id="btnbonusMoney"
               class="btn bg-[#0874f2] w-full my-3 text-white rounded-xl"
             >
-             Get Bonus
+              Get Bonus
             </button>
           </form>
         </div>
@@ -210,7 +217,6 @@
         <h1 class="font-bold mb-3">Transfer Money</h1>
         <div class="bg-white p-4 rounded-xl w-full">
           <form action="">
-          
             <label class="font-semibold" for=""> User Account Number</label>
             <br />
             <input
@@ -228,7 +234,7 @@
               class="input w-full my-3 rounded-xl"
             />
             <label class="font-semibold" for=""> Pin Number</label>
-       
+
             <br />
             <input
               type="password"
@@ -249,13 +255,12 @@
         <h1 class="font-bold mb-3">Pay Bill</h1>
         <div class="bg-white p-4 rounded-xl w-full">
           <form action="">
-              <label class="font-semibold" for=""> Select A pay</label>
+            <label class="font-semibold" for=""> Select A pay</label>
             <br />
             <select class="select select-primary my-3 w-full">
               <option>Select back</option>
               <option>bikash</option>
               <option>nogot</option>
-           
             </select>
             <label class="font-semibold" for=""> Biller Account Number</label>
             <br />
@@ -274,7 +279,7 @@
               class="input w-full my-3 rounded-xl"
             />
             <label class="font-semibold" for=""> Pin Number</label>
-       
+
             <br />
             <input
               type="password"
@@ -291,7 +296,18 @@
           </form>
         </div>
       </div>
-    </div>
+      <div id="js-transaction-parent" class="froms hidden">
+        <div class="flex justify-between">
+          <h1 class="font-bold mb-3">Transaction History</h1>
+          <p class="text-gray-500">View All</p>
+        </div >
+         <div id="container" class=""></div>
+
+         
+          </div>
+        </div>
+      </div>
+   
     <script src="./scripts/home.js"></script>
   </body>
 </html>

@@ -1,6 +1,7 @@
-let bankNumber='';
+let bankNumber = "";
+let tranctionData = [];
 function getValue(Id) {
-   bankNumber = document.getElementById(Id).value;
+  bankNumber = document.getElementById(Id).value;
   return bankNumber;
 }
 function getParseIntValue(Id) {
@@ -16,23 +17,19 @@ function setInnerText(id, ammuntTotal) {
   ammount.innerText = ammuntTotal;
 }
 
-let bankNumberChck='';
+let bankNumberChck = "";
 const btnAddMoney = document.getElementById("btnAddMoney");
 btnAddMoney.addEventListener("click", function (event) {
   event.preventDefault();
 
   bankNumberChck = getValue("js-bank-number");
- 
 
-  
   const validPinCheck = getParseIntValue("js-pin-number");
 
   let ammuntTotal = getInnerText("js-intial-one");
 
-  
   const ammuntTake = getParseIntValue("js-ammunt");
 
-    console.log(ammuntTake);
   if (bankNumber.length > 11) {
     alert("invalid bank number");
     return;
@@ -49,26 +46,31 @@ btnAddMoney.addEventListener("click", function (event) {
     return;
   }
 
-  
   setInnerText("js-intial-one", ammuntTotal);
+  const now = new Date();
+  const options = { hour: "2-digit", minute: "2-digit", hour12: true };
+  const time = now.toLocaleTimeString("en-US", options);
+  let data = {
+    name: "Add Money",
+    date: time
+  };
+  tranctionData.push(data);
+
+  
 });
 
-const tranferMoney= document.getElementById("btnTranfermoney");
+const tranferMoney = document.getElementById("btnTranfermoney");
 
 tranferMoney.addEventListener("click", function (event) {
   event.preventDefault();
 
-   const accountNumber = getValue("js-account-number");
-   
+  const accountNumber = getValue("js-account-number");
 
-    const validPinCheck = getParseIntValue("js-pin-number");
-   const ammuntTranferTake = getParseIntValue("js-ammunt-transfer");
-
-   
+  const validPinCheck = getParseIntValue("js-pin-number");
+  const ammuntTranferTake = getParseIntValue("js-ammunt-transfer");
 
   let ammuntTotal = getInnerText("js-intial-one");
- 
-  
+
   if (accountNumber !== bankNumberChck) {
     alert("invalid bank number");
     return;
@@ -79,29 +81,26 @@ tranferMoney.addEventListener("click", function (event) {
     return;
   }
 
-  ammuntTotal = ammuntTotal - ammuntTranferTake ;
+  ammuntTotal = ammuntTotal - ammuntTranferTake;
   if (ammuntTotal < 0) {
     alert("invalid ammunt");
     return;
   }
-  
+
   setInnerText("js-intial-one", ammuntTotal);
 });
-const btnPayBill= document.getElementById("btnPayBill");
+const btnPayBill = document.getElementById("btnPayBill");
 
 btnPayBill.addEventListener("click", function (event) {
   event.preventDefault();
 
-   const accountNumber = getValue("js-biller-account-number");
-   
+  const accountNumber = getValue("js-biller-account-number");
 
-    const validPinCheck = getParseIntValue("js-pin-number");
-   let ammuntTotal = getInnerText("js-intial-one");
+  const validPinCheck = getParseIntValue("js-pin-number");
+  let ammuntTotal = getInnerText("js-intial-one");
 
-  
   const ammuntTake = getParseIntValue("js-pay-ammunt");
- 
-  
+
   if (accountNumber !== bankNumberChck) {
     alert("invalid bank number");
     return;
@@ -112,40 +111,34 @@ btnPayBill.addEventListener("click", function (event) {
     return;
   }
 
-  ammuntTotal = ammuntTotal -ammuntTake ;
+  ammuntTotal = ammuntTotal - ammuntTake;
   if (ammuntTotal < 0) {
     alert("invalid ammunt");
     return;
   }
-  
+
   setInnerText("js-intial-one", ammuntTotal);
 });
-const btnbonusMoney= document.getElementById("btnbonusMoney");
-const validCopun='b4un4'
+const btnbonusMoney = document.getElementById("btnbonusMoney");
+const validCopun = "b4un4";
 btnbonusMoney.addEventListener("click", function (event) {
   event.preventDefault();
 
-   const copun = getValue("js-copun");
-   
+  const copun = getValue("js-copun");
 
-    let ammuntTotal = getInnerText("js-intial-one");
+  let ammuntTotal = getInnerText("js-intial-one");
 
-   
-
- 
-  
   if (copun !== validCopun) {
     alert("invalid cupon number");
     return;
   }
 
- 
-  ammuntTotal = ammuntTotal+1000 ;
+  ammuntTotal = ammuntTotal + 1000;
   if (ammuntTotal < 0) {
     alert("invalid ammunt");
     return;
   }
-  
+
   setInnerText("js-intial-one", ammuntTotal);
 });
 
@@ -154,11 +147,10 @@ const btnWuthdrawMoney = document.getElementById("btnWuthdrawMoney");
 btnWuthdrawMoney.addEventListener("click", function (event) {
   event.preventDefault();
 
-   const agentNumber = getValue("js-agent-number");
-   
+  const agentNumber = getValue("js-agent-number");
 
-    const validPinCheck = getParseIntValue("js-pin-number");
-   const ammuntWithdrawTake = getParseIntValue("js-ammunt-withdraw");
+  const validPinCheck = getParseIntValue("js-pin-number");
+  const ammuntWithdrawTake = getParseIntValue("js-ammunt-withdraw");
 
   let ammuntTotal = getInnerText("js-intial-one");
 
@@ -172,42 +164,89 @@ btnWuthdrawMoney.addEventListener("click", function (event) {
     return;
   }
 
-  ammuntTotal = ammuntTotal - ammuntWithdrawTake ;
+  ammuntTotal = ammuntTotal - ammuntWithdrawTake;
   if (ammuntTotal < 0) {
     alert("invalid ammunt");
     return;
   }
-  
+  const now = new Date();
+  const options = { hour: "2-digit", minute: "2-digit", hour12: true };
+  const time = now.toLocaleTimeString("en-US", options);
   setInnerText("js-intial-one", ammuntTotal);
+    let data = {
+    name: "withdraw",
+    date: time
+  };
+  tranctionData.push(data);
 });
 
 function handleToggle(formId) {
-    const forms = document.getElementsByClassName('froms');
+  const forms = document.getElementsByClassName("froms");
 
-    // Hide all forms
-    for (const form of forms) {
-        form.style.display = "none"
-    }
+  // Hide all forms
+  for (const form of forms) {
+    form.style.display = "none";
+  }
 
-    // Show the selected form
-     document.getElementById(formId).style.display='block';
-  
+  // Show the selected form
+  document.getElementById(formId).style.display = "block";
 }
 
-
 // const withdrawMoneyFrom = document.getElementById("js-withdraw-money-from");
-document.getElementById('js-add-money').addEventListener("click", function () {
-    handleToggle('js-add-parent');
+document.getElementById("js-add-money").addEventListener("click", function () {
+  handleToggle("js-add-parent");
 });
-  document.getElementById("js-Cashout").addEventListener("click", function () {
-     handleToggle('js-withdraw-parent');
+document.getElementById("js-Cashout").addEventListener("click", function () {
+  handleToggle("js-withdraw-parent");
 });
-  document.getElementById("js-tranfer").addEventListener("click", function () {
-     handleToggle('js-transfer-parent');
+document.getElementById("js-tranfer").addEventListener("click", function () {
+  handleToggle("js-transfer-parent");
 });
-  document.getElementById("js-bonus").addEventListener("click", function () {
-     handleToggle('js-bonus-parent');
+document.getElementById("js-bonus").addEventListener("click", function () {
+  handleToggle("js-bonus-parent");
 });
-  document.getElementById("js-pay-bill").addEventListener("click", function () {
-     handleToggle('js-payBil-parent');
+document.getElementById("js-tranction").addEventListener("click", function () {
+  handleToggle("js-transaction-parent");
 });
+document.getElementById("js-pay-bill").addEventListener("click", function () {
+  handleToggle("js-payBil-parent");
+});
+
+document.getElementById('all-section').addEventListener('click', function(e){
+    const div=document.createElement('div');
+    
+    const container= document.getElementById('container');
+   
+if (e.target.tagName.toLowerCase() === 'button') {
+     for(const data of tranctionData){
+      console.log(data);
+      
+
+   
+      div.innerHTML=`          <div class="flex bg-white items-center p-4 w-full rounded-xl mb-3">
+            <div class="flex justify-between w-full items-center">
+              <div class="flex justify-between items-center">
+                <div
+                  class=" p-2 rounded-full bg-[#f4f5f7] mr-2"
+                >
+                  <img src="./assets/wallet1.png" alt="" />
+                </div>
+
+                <div>
+                  <h2 class="font-bold text-gray-600">${data.name}</h2>
+                  <p>Today ${data.date}</p>
+                </div>
+              </div>
+               
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+     `
+      
+    }
+}
+    
+   
+    
+   container.appendChild(div);
+  
+
+})
