@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank Transaction</title>
+  <style>
+    #js-add-money-from, #js-withdraw-money-from {
+      display: none;
+      margin-top: 10px;
+    }
+    .section {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Bank Transaction System</h2>
+
+  <button id="js-add-money">Add Money</button>
+  <button id="js-Cashout">Withdraw Money</button>
+
+  <div id="js-add-money-from" class="section">
+    <h3>Add Money</h3>
+    <input type="text" id="js-bank-number" placeholder="Bank Number"><br><br>
+    <input type="text" id="js-pin-number" placeholder="PIN"><br><br>
+    <input type="number" id="js-ammunt" placeholder="Amount"><br><br>
+    <button id="btnAddMoney">Add Money</button>
+  </div>
+
+  <div id="js-withdraw-money-from" class="section">
+    <h3>Withdraw Money</h3>
+    <input type="text" id="js-agent-number" placeholder="Agent Number"><br><br>
+    <input type="text" id="js-pin-number" placeholder="PIN"><br><br>
+    <input type="number" id="js-ammunt-withdraw" placeholder="Amount"><br><br>
+    <button id="btnWuthdrawMoney">Withdraw</button>
+  </div>
+
+  <h3>Balance: <span id="js-intial-one">1000</span> TK</h3>
+
+  <script>
+    const bankNumber = document.getElementById("js-bank-number");
+    const agentNumber = document.getElementById("js-agent-number");
+    const amount = document.getElementById("js-ammunt");
+    const amountWithdraw = document.getElementById("js-ammunt-withdraw");
+    const amountPrimary = document.getElementById("js-intial-one");
+    const pinNumber = document.getElementById("js-pin-number");
+    const addMoney = document.getElementById("js-add-money");
+    const cashout = document.getElementById("js-Cashout");
+    const addMoneyForm = document.getElementById("js-add-money-from");
+    const withdrawMoneyForm = document.getElementById("js-withdraw-money-from");
+
+    let validBankNumberCheck = '';
+
+    // Show Add Money form
+    addMoney.addEventListener("click", function () {
+      addMoneyForm.style.display = "block";
+      withdrawMoneyForm.style.display = "none";
+    });
+
+    // Show Withdraw Money form
+    cashout.addEventListener("click", function () {
+      addMoneyForm.style.display = "none";
+      withdrawMoneyForm.style.display = "block";
+    });
+
+    // Add Money Button
+    const btnAddMoney = document.getElementById("btnAddMoney");
+    btnAddMoney.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      validBankNumberCheck = bankNumber.value.trim();
+      const pin = pinNumber.value.trim();
+      const amountToAdd = parseInt(amount.value);
+      let currentBalance = parseInt(amountPrimary.innerText);
+
+      // Validation
+      if (validBankNumberCheck.length !== 11) {
+        alert("Bank number must be 11 digits");
+        return;
+      }
+      if (pin.length !== 4) {
+        alert("PIN must be 4 digits");
+        return;
+      }
+      if (isNaN(amountToAdd) || amountToAdd <= 0) {
+        alert("Invalid amount");
+        return;
+      }
+
+      currentBalance += amountToAdd;
+      amountPrimary.innerText = currentBalance;
+      alert("Money added successfully!");
+      amount.value = '';
+    });
+
+    // Withdraw Money Button
+    const btnWithdrawMoney = document.getElementById("btnWuthdrawMoney");
+    btnWithdrawMoney.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      console.log("Saved Bank Number:", validBankNumberCheck);
+
+      const agentNumberCheck = agentNumber.value.trim();
+      const pin = pinNumber.value.trim();
+      const amountToWithdraw = parseInt(amountWithdraw.value);
+      let currentBalance = parseInt(amountPrimary.innerText);
+
+      // Validation
+      if (agentNumberCheck.length !== 11) {
+        alert("Agent number must be 11 digits");
+        return;
+      }
+      if (pin.length !== 4) {
+        alert("PIN must be 4 digits");
+        return;
+      }
+      if (isNaN(amountToWithdraw) || amountToWithdraw <= 0) {
+        alert("Invalid amount");
+        return;
+      }
+      if (amountToWithdraw > currentBalance) {
+        alert("Insufficient balance");
+        return;
+      }
+
+      currentBalance -= amountToWithdraw;
+      amountPrimary.innerText = currentBalance;
+      alert("Withdrawal successful!");
+      amountWithdraw.value = '';
+    });
+  </script>
+</body>
+</html>

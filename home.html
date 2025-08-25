@@ -62,7 +62,7 @@
           </div>
         </div>
 
-        <div
+        <div id="js-tranfer"
           class="shadow rounded-lg flex justify-center items-center py-2 text-center"
         >
           <div>
@@ -70,7 +70,7 @@
             <h1 class="text-gray-300 font-normal">Transfer Money</h1>
           </div>
         </div>
-        <div
+        <div id="js-bonus"
           class="shadow rounded-lg flex justify-center items-center py-3 text-center"
         >
           <div>
@@ -78,7 +78,7 @@
             <h1 class="text-gray-300 font-normal">Get Bonus</h1>
           </div>
         </div>
-        <div
+        <div  id="js-pay-bill"
           class="shadow rounded-lg flex justify-center items-center py-3 text-center"
         >
           <div>
@@ -96,8 +96,8 @@
         </div>
       </div>
     </div>
-    <div class="all section froms p-4">
-      <div id="js-add-money-from">
+    <div class="all section from p-4">
+      <div id="js-add-parent" class="froms hidden">
         <h1 class="font-bold mb-3">Add money</h1>
         <div class="bg-white p-4 rounded-xl w-full">
           <form action="">
@@ -143,7 +143,7 @@
           </form>
         </div>
       </div>
-      <div id="js-withdraw-money-from" class="hidden">
+      <div id="js-withdraw-parent" class="froms hidden">
         <h1 class="font-bold mb-3">Cash Out</h1>
         <div class="bg-white p-4 rounded-xl w-full">
           <form action="">
@@ -152,7 +152,7 @@
             <br />
             <input
               type="text"
-              placeholder="Enter amount to withdraw"
+              placeholder="Enter 11 digit number"
               id="js-agent-number"
               class="input w-full my-3 rounded-xl"
             />
@@ -175,6 +175,115 @@
             />
             <button
               id="btnWuthdrawMoney"
+              class="btn bg-[#0874f2] w-full my-3 text-white rounded-xl"
+            >
+              Withdraw Money
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="js-bonus-parent" class="froms hidden">
+        <h1 class="font-bold mb-3">Get Bonus</h1>
+        <div class="bg-white p-4 rounded-xl w-full">
+          <form action="">
+          
+         
+            <label class="font-semibold" for="">Enter Bonus Coupon</label>
+       
+            <br />
+            <input
+              type="password"
+              placeholder="Enter your coupon"
+              id="js-copun"
+              class="input w-full my-3 rounded-xl"
+            />
+            <button
+              id="btnbonusMoney"
+              class="btn bg-[#0874f2] w-full my-3 text-white rounded-xl"
+            >
+             Get Bonus
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="js-transfer-parent" class="froms hidden">
+        <h1 class="font-bold mb-3">Transfer Money</h1>
+        <div class="bg-white p-4 rounded-xl w-full">
+          <form action="">
+          
+            <label class="font-semibold" for=""> User Account Number</label>
+            <br />
+            <input
+              type="text"
+              placeholder="Enter 11 digit number"
+              id="js-account-number"
+              class="input w-full my-3 rounded-xl"
+            />
+            <label class="font-semibold" for=""> Amount</label>
+            <br />
+            <input
+              type="text"
+              placeholder="Enter amount to transfer"
+              id="js-ammunt-transfer"
+              class="input w-full my-3 rounded-xl"
+            />
+            <label class="font-semibold" for=""> Pin Number</label>
+       
+            <br />
+            <input
+              type="password"
+              placeholder="Enter 4 Digit Pin"
+              id="js-pin-number"
+              class="input w-full my-3 rounded-xl"
+            />
+            <button
+              id="btnTranfermoney"
+              class="btn bg-[#0874f2] w-full my-3 text-white rounded-xl"
+            >
+              Transfer Money
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="js-payBil-parent" class="froms hidden">
+        <h1 class="font-bold mb-3">Pay Bill</h1>
+        <div class="bg-white p-4 rounded-xl w-full">
+          <form action="">
+              <label class="font-semibold" for=""> Select A pay</label>
+            <br />
+            <select class="select select-primary my-3 w-full">
+              <option>Select back</option>
+              <option>bikash</option>
+              <option>nogot</option>
+           
+            </select>
+            <label class="font-semibold" for=""> Biller Account Number</label>
+            <br />
+            <input
+              type="text"
+              placeholder="Enter account number"
+              id="js-biller-account-number"
+              class="input w-full my-3 rounded-xl"
+            />
+            <label class="font-semibold" for=""> Amount to Pay</label>
+            <br />
+            <input
+              type="text"
+              placeholder="Add Amount to pay"
+              id="js-pay-ammunt"
+              class="input w-full my-3 rounded-xl"
+            />
+            <label class="font-semibold" for=""> Pin Number</label>
+       
+            <br />
+            <input
+              type="password"
+              placeholder="Enter 4 Digit Pin"
+              id="js-pin-number"
+              class="input w-full my-3 rounded-xl"
+            />
+            <button
+              id="btnPayBill"
               class="btn bg-[#0874f2] w-full my-3 text-white rounded-xl"
             >
               Withdraw Money
